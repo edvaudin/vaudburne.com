@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header > img {
+    display: inline-block;
+    margin: 0 auto;
+}
