@@ -1,17 +1,100 @@
+@font-face {
+    font-family: isometretos;
+    src: url("/fonts/isometretos/Isometretos.otf");
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 header {
-    width: 100%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    background-color: rgb(23, 23, 23);
 }
 
-header > img {
-    display: inline-block;
+main {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(232, 232, 232);
+    padding: 30px;
+    overflow: auto;
     margin: 0 auto;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.image-container {
+    min-width: 300px;
+    min-height: 450px;
+    opacity: 0; /* Start with elements hidden */
+    transform: translateX(-100px); /* Start elements off to the left */
+    animation: fadeInLeft 0.8s ease-out forwards;
+    border: 5px solid black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.image-container:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.image-container:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.image-container:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1; /* Fade in */
+        transform: translateX(0); /* Move to original position */
+    }
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-container:hover .description {
+    opacity: 1;
+    visibility: visible;
 }
